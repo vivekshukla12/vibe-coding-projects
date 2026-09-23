@@ -1,0 +1,1 @@
+SELECT employeeID,fullLegalName,primaryHomeAddress{city,postalCode} AS homeAddress FROM allWorkers WHERE activeStatus=true AND primaryHomeAddressCity IN ('Berlin','Munich') LIMIT 100

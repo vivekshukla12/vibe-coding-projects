@@ -1,0 +1,42 @@
+name: Build WQL Tools
+on:
+  push:
+    paths:
+      - 'projects/wql-notepadpp/**'
+      - '.github/workflows/wql-notepadpp.yml'
+  pull_request:
+    paths:
+      - 'projects/wql-notepadpp/**'
+      - '.github/workflows/wql-notepadpp.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-2022
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [x64, Win32]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S projects/wql-notepadpp -B build -A ${{ matrix.arch }}
+      - name: Build
+        run: cmake --build build --config Release --parallel
+      - name: Test core and DLL
+        run: ctest --test-dir build -C Release --output-on-failure
+      - name: Package DLL, colors, notices and matching source
+        shell: pwsh
+        run: |
+          cmake --install build --config Release --prefix package
+          Copy-Item projects/wql-notepadpp/vendor/Scintilla-LICENSE.txt package/WqlTools/
+          git archive --format=zip --output=package/WqlTools/source.zip HEAD projects/wql-notepadpp .github/workflows/wql-notepadpp.yml
+          Set-Content package/WqlTools/BUILD-COMMIT.txt '${{ github.sha }}'
+          Get-FileHash package/WqlTools/WqlTools.dll -Algorithm SHA256 | Format-List | Out-File package/WqlTools/SHA256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: WqlTools-${{ matrix.arch }}
+          path: package/
+          retention-days: 90
+          if-no-files-found: error
