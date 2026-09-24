@@ -13,7 +13,7 @@ namespace {
 NppData npp;
 const wchar_t* title = L"WQL Tools";
 constexpr size_t maxBytes = 10 * 1024 * 1024;
-ShortcutKey shortcuts[] = {{true,true,true,'F'}, {true,true,true,'M'}, {true,true,true,'V'}};
+ShortcutKey shortcuts[] = {{true,true,true,'W'}, {true,true,true,'M'}, {true,true,true,'V'}};
 FuncItem items[5];
 HWND editor() {
     int which = 0;
@@ -88,7 +88,7 @@ void validateCommand() {
 void colorsHelp() {
     show("Import one bundled syntax file:\n\nLanguage > User Defined Language > Define your language > Import\n\nChoose WQL-Light.xml or WQL-Dark.xml, then select Language > WQL. Files ending in .wql use it automatically. Import only one theme; remove the old WQL definition when switching.\n\nThe DLL's formatting and validation commands work with any file extension.");
 }
-void about() { show("WQL Tools 0.1.0\nCopyright (c) 2026 Vivek Shukla\nGPL-3.0-or-later\n\nFormat, Minify and Validate locally. No network requests or AI service.\n\nShortcuts: Settings > Shortcut Mapper > Plugin commands.\nDefault: Ctrl+Alt+Shift+F / M / V. Resolve any shortcut conflicts there."); }
+void about() { show("WQL Tools 0.1.0\nCopyright (c) 2026 Vivek Shukla\nGPL-3.0-or-later\n\nFormat, Minify and Validate locally. No network requests or AI service.\n\nShortcuts: Settings > Shortcut Mapper > Plugin commands.\nDefault: Ctrl+Alt+Shift+W / M / V. Resolve any shortcut conflicts there."); }
 void setup() {
     const wchar_t* names[] = {L"Format WQL",L"Minify WQL",L"Validate WQL",L"Syntax colors - installation help",L"About WQL Tools"};
     PFUNCPLUGINCMD callbacks[] = {formatCommand,minifyCommand,validateCommand,colorsHelp,about};

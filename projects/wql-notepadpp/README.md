@@ -7,7 +7,7 @@ Workday Query Language. Runs offline with no PythonScript or AI dependency.
 
 | Command | Default shortcut | Behavior |
 | --- | --- | --- |
-| Format WQL | Ctrl+Alt+Shift+F | Indent selected fields and related object braces; separate clauses. |
+| Format WQL | Ctrl+Alt+Shift+W | Indent selected fields and related object braces; separate clauses. |
 | Minify WQL | Ctrl+Alt+Shift+M | Remove optional whitespace while preserving literals and comments. |
 | Validate WQL | Ctrl+Alt+Shift+V | Report local syntax diagnostics with line/column locations. |
 
@@ -19,7 +19,15 @@ are refused for read-only documents, unclosed strings, unbalanced delimiters,
 queries over 10 MiB, or nesting beyond 128 levels.
 
 Assign different keys in **Settings > Shortcut Mapper > Plugin commands**.
-Other plugins may already use these combinations; resolve conflicts there.
+Built-in commands or other plugins may already use these combinations. Select
+the command and check the conflict message, then modify or clear the conflicting
+assignment.
+
+The Format default changed from **Ctrl+Alt+Shift+F** to **Ctrl+Alt+Shift+W**
+after a conflict with a built-in command was reported. Existing installations
+may retain saved shortcut assignments after replacing the DLL; if Format still
+uses F, change it to W in Shortcut Mapper. If you already changed it to W, no
+further shortcut change is needed.
 
 ## Download and install
 
