@@ -1,0 +1,4 @@
+variant,material,filament_brand_batch,nozzle_mm,layer_height_mm,wall_count,infill,profile_reference,drying,hand_assembly,stop_seats,lateral_play_mm,normal_play_mm,insertion_force_N,removal_force_N,cycles_completed,cracking_chipping,seam_alignment,notes
+s0.15-v0.40,PETG-CF,,,,,,,,,,,,,,,,,NOT TESTED
+s0.25-v0.40,PETG-CF,,,,,,,,,,,,,,,,,NOT TESTED
+s0.35-v0.40,PETG-CF,,,,,,,,,,,,,,,,,NOT TESTED

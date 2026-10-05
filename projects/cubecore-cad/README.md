@@ -1,9 +1,19 @@
 # CubeCore CAD
 
+See [STATUS.md](STATUS.md) for branch, validation and current gate.
+
 Local parametric implementation using uv-managed Python 3.13, build123d,
-OpenCascade, pytest and OCP Viewer. This branch provides the generic workspace,
-package structure and headless environment smoke test. Component geometry belongs
-on its own CAD branch. See [STATUS.md](STATUS.md) for the current branch state.
+OpenCascade, pytest and OCP Viewer. The active geometry is an isolated PETG-CF
+sliding-dovetail fit coupon; no full chassis is implemented. Coupon dimensions
+and clearances remain provisional pending physical print tests.
+
+See the [coupon guide](docs/dovetail-coupon.md) for parameters, three labelled
+clearance variants, printing orientation and the dry-fit procedure. Generate
+individual and assembled STEP plus print-oriented STL with:
+
+```sh
+uv run python examples/dovetail_coupon.py
+```
 
 The requirements and engineering knowledge source is
 [`../../../project-workbench/projects/kallax-microserver/`](../../../project-workbench/projects/kallax-microserver/),

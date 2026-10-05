@@ -19,7 +19,11 @@
 - Onshape is for downstream STEP import/review only. Do not use an Onshape API
   or continuous Onshape synchronization workflow. This explicit implementation
   direction overrides older Onshape-authority statements in the knowledge source.
-- The smoke-test box is an environment fixture, never product geometry.
+- The active gate is an isolated PETG-CF sliding-dovetail fit coupon. Do not
+  propagate it to the full chassis before physical validation. Use no primary
+  metal fasteners; optional cyanoacrylate is secondary to a successful dry fit.
+  Coupon dimensions and clearances remain provisional. The smoke-test box is
+  only an environment fixture, never product geometry.
 - Keep this project inside the existing `vibe-coding-projects` Git repository;
   do not initialize a standalone or nested repository.
 - Do not modify `project-workbench` unless explicitly authorized for the current
