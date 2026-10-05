@@ -1,0 +1,23 @@
+[project]
+name = "cubecore-cad"
+version = "0.1.0"
+description = "Local parametric B-Rep CAD implementation for CubeCore"
+readme = "README.md"
+authors = [
+    { name = "Vivek Shukla", email = "vivek.shukla12@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "build123d>=0.13.0",
+    "ocp-vscode>=4.1.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
+]
